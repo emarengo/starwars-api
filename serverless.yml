@@ -1,4 +1,4 @@
-service: starwars-api
+service: star-wars-api
 
 provider:
   name: aws
@@ -15,18 +15,29 @@ provider:
             - dynamodb:Scan
             - dynamodb:GetItem
             - dynamodb:PutItem
+            - dynamodb:UpdateItem
+            - dynamodb:DeleteItem
           Resource: "arn:aws:dynamodb:${aws:region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
 
 functions:
   api:
     handler: src/handler.handler
     events:
-      - http:
+      - httpApi:
           path: /characters
-          method: get
-      - http:
+          method: GET
+      - httpApi:
+          path: /characters/{id}
+          method: GET
+      - httpApi:
           path: /characters
-          method: post
+          method: POST
+      - httpApi:
+          path: /characters/{id}
+          method: PUT
+      - httpApi:
+          path: /characters/{id}
+          method: DELETE
 
 resources:
   Resources:
