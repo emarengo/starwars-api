@@ -23,17 +23,23 @@ API RESTful que permite gestionar personajes de Star Wars, con traducción al es
 ## 🛠️ Instalación
 
 1. Clonar el repositorio:
+```
 git clone https://github.com/emarengo/starwars-api.git
 cd starwars-api
+```
 
 2. Instalar dependencias:
+```
 npm install
+```
 
 3. Configurar variables de entorno:
+```
 cp .env.example .env
+```
 
 ## 📦 Estructura del Proyecto
-
+```
 src/
 ├── config/         # Configuraciones (swagger, etc)
 ├── controllers/    # Controladores
@@ -42,20 +48,24 @@ src/
 ├── services/      # Servicios
 ├── tests/         # Tests
 └── types/         # Tipos TypeScript
+```
 
 ## 🚀 Uso
 
 ### Desarrollo Local
-
+```
 npm run start
+```
 
 ### Ejecutar Tests
-
+```
 npm test
+```
 
 ### Desplegar en AWS
-
+```
 npm run deploy
+```
 
 ## 📚 API Endpoints
 
@@ -74,6 +84,7 @@ npm run deploy
 - Body: Datos del personaje
 
 Ejemplo de payload:
+```
 {
   "nombre": "Luke Skywalker",
   "añoNacimiento": "19 BBY",
@@ -92,6 +103,7 @@ Ejemplo de payload:
   "navesEspaciales": ["X-wing"],
   "vehiculos": ["Landspeeder"]
 }
+```
 
 #### PUT /characters/{id}
 - Actualiza un personaje existente
@@ -102,7 +114,7 @@ Ejemplo de payload:
 - Response: 204 No Content
 
 ## 📝 Campos Disponibles
-
+```
 | Campo Español | Campo Original | Tipo | Descripción |
 |--------------|----------------|------|-------------|
 | nombre | name | string | Nombre del personaje |
@@ -118,27 +130,34 @@ Ejemplo de payload:
 | especies | species | string[] | Especies del personaje |
 | navesEspaciales | starships | string[] | Naves pilotadas |
 | vehiculos | vehicles | string[] | Vehículos utilizados |
-
+```
 ## 🔐 Variables de Entorno
-
+```
 DYNAMODB_TABLE=my-characters-table
 AWS_REGION=us-east-1
 NODE_ENV=development
+```
 
 ## 🧪 Testing
 
 El proyecto incluye tests unitarios usando Jest:
 
 # Ejecutar tests
+```
 npm test
+```
 
 # Ver cobertura
+```
 npm test -- --coverage
+```
 
 ## 📖 Documentación
 
 La documentación de la API está disponible en Swagger UI:
+```
 http://localhost:3000/api-docs
+```
 
 ## 🤝 Contribuir
 
